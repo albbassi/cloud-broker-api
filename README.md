@@ -1,2 +1,2 @@
 # cloud-broker-api
-Repositório back-end da aplicação de cloud broker que fará a gestão dos contratos de nuvem
+Repositório back-end da aplicação de cloud broker para gestão de contratos de nuvem
