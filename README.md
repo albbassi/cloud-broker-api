@@ -1,13 +1,11 @@
-# API Controle de Contratos - MVP
+# API Gestão de Contratos - Multinuvem
 
-Este faz parte do MVP a ser entregue para a disciplina **Desenvolvimento Full Stack Básico** 
-
-O objetivo do trabalho é a entrega de uma api que provê métodos para o cadastro simples de Clientes, Contratos e Itens de Contrato em uma base de dados sqllite.
+Esta aplicação é o ponta pé inicial de um projeto para criação de uma sistema de gestão de contrato de multinuvem (broker). O sistema será dividido em módulos que farão a gestão de: Clientes, Contratos, Itens de contrato, Faturamento, Demandas, Usuários, Gestores e Billing. A implementação em forma de API, visa facilitar a integração com as ferramentas corporativas já em produção e ferrramentas de parceiros.  
 
 
 # Atenção
 
-O Projeto por ser um MVP utliza uma base Sqlite e esta precisa de algumas configurações extra para permitir "delete cascade" (1) e além disso, foi criado um trigger para automatizar o cálculo do valor total dos produtos (2)
+Como o projeto está na fase de MVP, foi utlizada uma base Sqlite3 e esta precisa ser configurada para permitir "delete cascade" (1).além disso, foi criado um trigger para automatizar o cálculo do valor total dos produtos (2)
 
 1. No arquivo **models/__init__.py** foi criado um evento para habilitar o suporte nativo à foreignKey permitindo assim a execução de deletes cascade nas tabelas.
 
@@ -20,7 +18,7 @@ O Projeto por ser um MVP utliza uma base Sqlite e esta precisa de algumas config
         
 2. Criação de um trigger para que na tabela item de contrato o valor total fosse calculado a partir dos dados inserido nas colunas valor unitário e quantidade preenchendo automaticamente a coluna valor total.
 
-    Criação do função para o gatilho # Criação do trigger\
+    Criação do trigger\
     def calcular_produto(mapper, connection, target):\
         target.valor_total = target.quantidade * target.valor_unitario\
 
@@ -60,5 +58,5 @@ automaticamente após uma mudança no código fonte.
 ```
 
 
-Abra o [http://localhost:5000/documentacao/](http://localhost:5000/) no navegador para escolher o mode de apresentação da Dcumentação da API em execução.
+Abra o [http://localhost:5000/](http://localhost:5000/) no navegador para escolher o mode de apresentação da Dcumentação da API em execução.
 
