@@ -47,7 +47,7 @@ $ python -m venv env
 
 Em seguida ative o ambiente virtual com o comando. 
 ```
-$ python -m venv env
+$ source ./env/bin/activate
 ```
 
 Este comando instala as dependências/bibliotecas, descritas no arquivo `requirements.txt`.
