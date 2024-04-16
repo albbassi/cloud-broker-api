@@ -32,7 +32,7 @@ Como o projeto está na fase de MVP, foi utlizada uma base Sqlite3 e esta precis
 ## Como executar 
 
 
-Será necessário ter todas as libs python listadas no `requirements.txt` instaladas.
+É necessário que todas as libs python listadas no `requirements.txt` estejam instaladas.
 
 Após clonar o repositório, é necessário ir ao diretório raiz, pelo terminal, para poder executar os comandos descritos abaixo.
 
