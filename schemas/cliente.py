@@ -9,7 +9,7 @@ class ClienteSchema(BaseModel):
     """
 
     nome: str ="Pontifícia Universidade Católica do Rio de Janeiro"
-    cnpj: str ="33555921000170"
+    cnpj: str ="33.555.921/0001-70"
     localizacao: str ="Rua Marquês de São Vicente, 225 – Gávea CEP: 22451-900 RJ"
 
 
@@ -20,7 +20,7 @@ class ClienteViewSchema(BaseModel):
     """
     
     nome: str ="Pontifícia Universidade Católica do Rio de Janeiro"
-    cnpj: str ="33555921000170"
+    cnpj: str ="33.555.921/0001-70"
     localizacao: str ="Rua Marquês de São Vicente, 225 – Gávea CEP: 22451-900 RJ"
 
 
@@ -56,7 +56,7 @@ class ClienteBuscaSchema(BaseModel):
     """ 
         Formato do dado recebido pela API para busca na base através do campo CNPJ.
     """
-    cnpj: str = "33555921000170"
+    cnpj: str = "33.555.921/0001-70"
 
 
 class ClientesListagemSchema(BaseModel):

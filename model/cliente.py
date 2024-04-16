@@ -24,7 +24,7 @@ class Cliente(Base):
     __tablename__ = 'cli_cliente'
     id_cliente = Column(Integer, primary_key = True, index= True)
     nome = Column(String(254))
-    cnpj = Column(String(15), unique=True)
+    cnpj = Column(String(18), unique=True)
     localizacao = Column(String(254))
     created_on =  Column(DateTime(timezone=True), server_default=func.now())
     updated_on = Column(DateTime(timezone=True), onupdate=func.now())
