@@ -1,6 +1,6 @@
 # MVP - API Cadastro de Clientes - Multinuvem
 
-Esta aplicação é o ponta pé inicial de um projeto para criação de uma sistema de gestão de contrato de multinuvem (Cloud broker). O sistema será dividido em módulos que farão a gestão de: Clientes, Contratos, Itens de contrato, Faturamento, Demandas, Usuários, Gestores e Billing. A implementação em forma de API, visa facilitar a integração com as ferramentas corporativas já em produção e ferrramentas de parceiros.  
+Esta aplicação é o ponta pé inicial do projeto para criação de um sistema de gestão de contratos de multinuvem (Cloud Broker). O sistema será dividido em módulos que farão a gestão de: Clientes, Contratos, Itens de contrato, Faturamento, Demandas, Usuários, Gestores e Billing. A implementação em forma de API, visa facilitar a integração com as ferramentas corporativas já em produção e ferrramentas de parceiros.  
 
 
 # Atenção
