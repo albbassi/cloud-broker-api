@@ -5,9 +5,9 @@ Esta aplicação é o ponta pé inicial do projeto para criação de um sistema 
 
 # Atenção
 
-Como o projeto está na fase de MVP, foi utlizada uma base Sqlite3 e esta precisa ser configurada para permitir "delete cascade" (1). Além disso, foi criado um trigger para automatizar o cálculo do valor total dos produtos (2).
+Como o projeto está na fase de MVP, foi utlizada uma base Sqlite3 e esta precisa de configurações extras para permitir "delete cascade" (1). Além disso, foi criado um trigger para automatizar o cálculo do valor total dos produtos (2).
 
-1. No arquivo **models/__init__.py** foi criado um evento para habilitar o suporte nativo à foreignKey permitindo assim a execução de deletes cascade nas tabelas.
+1. No arquivo **models/__init__.py** foi criado um evento para habilitar o suporte à foreignKey que não é nativo do Sqlite3 permitindo assim a execução de deletes cascade nas tabelas.
 
     @event.listens_for(engine, "connect") \
         def set_sqlite_pragma(dbapi_connection, connection_record):\
