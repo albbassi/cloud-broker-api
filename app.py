@@ -11,7 +11,7 @@ from flask_cors import CORS
 #from sqlalchemy.engine import Engine
 
 
-info = Info(title="API Controle de Contratos - MVP", version="1.0.0")
+info = Info(title="API Cloud Broker - MVP", version="1.0.0")
 app = OpenAPI(__name__, info=info)
 
 
@@ -62,7 +62,7 @@ def add_contrato(form: ContratoSchema):
     except IntegrityError as e:
         # como a duplicidade do nome é a provável razão do IntegrityError
         error_msg = "Contrato de mesmo número já salvo na base :/"
-        logger.warning(f"Erro ao adicionar produto '{contrato.nr_contrato}', {error_msg}")
+        logger.warning(f"Erro ao adicionar contrato '{contrato.nr_contrato}', {error_msg}")
         return {"mesage": error_msg}, 409
 
     except Exception as e:
@@ -110,7 +110,7 @@ def get_contratos():
     """
         Buscar todos os contratos cadastrados
 
-        Retorna uma representação da listagem dos contratso atualmente presentes na base.
+        Retorna uma representação da listagem dos contratos atualmente presentes na base.
     """
     logger.debug(f"Coletando contratos ")
     # criando conexão com a base
@@ -122,8 +122,8 @@ def get_contratos():
         # se não há produtos cadastrados
         return {"contratos": []}, 200
     else:
-        logger.debug(f"%d Existem atualmente na base % {len (contratos)} contratos")
-        # retorna a representação de produto
+        logger.debug(f"%d Existem na base atualmente % {len (contratos)} contratos")
+        # retorna a representação de contrato
         print(contratos)
         return ContratosApresentacao(contratos), 200
     
@@ -241,7 +241,7 @@ def add_cliente(form: ClienteSchema):
         session = Session()
         # adicionando produto
         session.add(cliente)
-        # efetivando o camando de adição de novo item na tabela
+        # efetivando o comando de adição de novo cliente na tabela
         session.commit()
         logger.debug(f"Adicionado cliente com o cnpj: '{cliente.cnpj}'")
         return ClienteApresenta(cliente), 200
@@ -321,7 +321,7 @@ def get_cliente(query: ClienteBuscaSchema):
     """
         Busca na base um cliente a partir do seu cnpj
 
-        Retorna uma mensagem confirmando que o cliente foi existe na base.
+        Retorna uma mensagem confirmando que o cliente existe na base.
     """
     cnpj = unquote(unquote(query.cnpj))
     print(cnpj)
@@ -332,13 +332,13 @@ def get_cliente(query: ClienteBuscaSchema):
     achou = session.query(Cliente).filter(Cliente.cnpj == cnpj).first()
 
     if achou:
-        # retorna a representação da mensagem de confirmação
+        # retorna uma mensagem de confirmação
         logger.debug(f"Cliente encontrato #{cnpj}")
         return {"mesage": "Cliente Encontrato", "nome": achou.nome}
     else:
         # se o produto não foi encontrado
         error_msg = "Cliente não encontrado na base :/"
-        logger.warning(f"O cnpj não eixte na base #'{cnpj}', {error_msg}")
+        logger.warning(f"O cnpj não existe na base #'{cnpj}', {error_msg}")
         return {"mesage": error_msg}, 404
     
 
@@ -347,9 +347,9 @@ def get_cliente(query: ClienteBuscaSchema):
 def put_cliente(form: ClienteSchema):
     
     """
-        Edita as informações de um cliente na base a partir do seu cnpj
+        Edita as informações de um cliente na base a partir do cnpj
 
-        **<font color="red">OBS:Preencha apenas os campos que devem ser alterados.</font>**
+        **<font color="red">OBS:Somente os campos Nome e Endereço serão alterados.</font>**
 
         Retorna uma mensagem confirmando que o cliente foi editado.
     """
@@ -362,15 +362,15 @@ def put_cliente(form: ClienteSchema):
     cnpj = unquote(unquote(dados.cnpj))
     print(cnpj)
     logger.debug(f"procura o cnpj # {cnpj}")
-    # criando conexão com a base
     
+    # criando conexão com a base
     session = Session()
     
     # verificando se existe o cliente
     achou = session.query(Cliente).filter(Cliente.cnpj == cnpj).first()
 
     if (achou):
-        # retorna a representação da mensagem de confirmação
+        # retorna uma mensagem de confirmação
         logger.debug(f"Cliente encontrato #{cnpj}")
 
         if (( dados.nome != achou.nome) and (dados.nome != "")):
@@ -385,7 +385,7 @@ def put_cliente(form: ClienteSchema):
         achou.nome =  atualiza_nome
         achou.localizacao = atualiza_localizacao
         
-        # Commit (confirmar) as alterações
+        # Commit das alterações
         session.commit()
 
         # Feche a sessão
@@ -394,7 +394,7 @@ def put_cliente(form: ClienteSchema):
         return {"mesage": "Cliente encontrato e dado(s) alterado(s)", "nome": dados.nome}
     else:
         # se o cliente não foi encontrado
-        error_msg = "O campo CNPJ não pode ser Alterado :/"
+        error_msg = "O campo CNPJ não pode ser alterado :/"
         logger.warning(f"O cnpj '{cnpj}' não existe na base #, {error_msg}")
         return {"mesage": error_msg}, 404
     
@@ -425,12 +425,12 @@ def add_item_contrato(form: ItemContratoSchema):
         session.add(item_contrato)
         # efetivando o camando de adição de novo item de contrato à tabela
         session.commit()
-        logger.debug(f"Adicionado item de contrato de nome: '{item_contrato.nome_item}'")
-        return apresenta_item_contrato(item_contrato), 200
+        logger.debug(f"Adicionado ao contrato o item de nome: '{item_contrato.nome_item}'")
+        return ItemContratoApresenta(item_contrato), 200
 
     except IntegrityError as e:
         # como a duplicidade do nome é a provável razão do IntegrityError
-        error_msg = "Item de Contrato de mesmo nome já salvo na base :/"
+        error_msg = "O contrato já possui um item com este nome já salvo na base :/"
         logger.warning(f"Erro ao adicionar item '{item_contrato.nome_item}', {error_msg}")
         return {"mesage": error_msg}, 409
 

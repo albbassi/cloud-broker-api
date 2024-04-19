@@ -19,7 +19,7 @@ class Cliente(Base):
             localizacao: endereço comṕleto do cliente
             criado_em: data em que o registro foi adicionado à base (geração automática)
             atualizado_em: data em que o registro foi alterado na base (geração automática)
-        """
+    """
 
     __tablename__ = 'cli_cliente'
     id_cliente = Column(Integer, primary_key = True, index= True)
