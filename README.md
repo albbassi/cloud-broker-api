@@ -59,11 +59,12 @@ Para executar a API  basta executar:
 
 ```
 (env)$ flask run --host 0.0.0.0 --port 5000
+```
 
 ou
 
+```
 (env)$ flask run --host 0.0.0.0 --port 5000 --reload --debug
-
 ```
 
 O segundo modo de execução, inicia o servidor Flask com as configurações especificadas, tornando a aplicação acessível em qualquer endereço IP na porta 5000, com recarregamento automático e modo de depuração ativados.
