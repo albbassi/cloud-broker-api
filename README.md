@@ -70,8 +70,8 @@ automaticamente após uma mudança no código fonte.
 
 # Atenção
 
-<span style="color:red"> *** Ao utilizar o swagger para fazer operações de inserção, atualização ou deleção de dados, o usuário deverá atentar que as entidades Cliente, Contrato e Item de contrato estão relacionados entre si e possuem constraints *** </span>.
+Ao utilizar o Swagger para realizar operações de inserção, atualização ou exclusão de dados, é crucial seguir a sequência correta de inserção. Primeiro, deve-se cadastrar um Cliente, seguido pela criação de um Contrato e, por fim, a inclusão de um Item de Contrato. É fundamental estar ciente de que estas entidades - Cliente, Contrato e Item de Contrato - estão interligadas e possuem restrições associadas.
 
-
+```
 Abra o [http://localhost:5000/](http://localhost:5000/) no navegador para escolher o mode de apresentação da Dcumentação da API em execução.
 
