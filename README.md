@@ -59,15 +59,18 @@ Para executar a API  basta executar:
 
 ```
 (env)$ flask run --host 0.0.0.0 --port 5000
-```
 
-Em modo de desenvolvimento é recomendado executar utilizando os parâmetro reload e debug, que reiniciará o servidor e ajudará com o debug
-automaticamente após uma mudança no código fonte. 
+ou
 
-```
 (env)$ flask run --host 0.0.0.0 --port 5000 --reload --debug
+
 ```
+
+O segundo modo de execução, inicia o servidor Flask com as configurações especificadas, tornando a aplicação acessível em qualquer endereço IP na porta 5000, com recarregamento automático e modo de depuração ativados.
+
+
 <hr>
+
 **Fique Atento!**
 
 Ao utilizar o Swagger para realizar operações de inserção, atualização ou exclusão de dados, é crucial seguir a sequência correta de inserção. Primeiro, deve-se cadastrar um Cliente, seguido pela criação de um Contrato e, por fim, a inclusão de um Item de Contrato. É fundamental estar ciente de que estas entidades - Cliente, Contrato e Item de Contrato - estão interligadas e possuem restrições associadas.
@@ -78,6 +81,7 @@ Ao utilizar o Swagger para realizar operações de inserção, atualização ou 
 
 Abra o [http://localhost:5000/](http://localhost:5000/) no navegador para escolher o modo de apresentação da Dcumentação da API em execução.
 
+<br>
 
 **Divirta-se!**
 
