@@ -67,7 +67,7 @@ automaticamente após uma mudança no código fonte.
 ```
 (env)$ flask run --host 0.0.0.0 --port 5000 --reload --debug
 ```
-<>hr
+<hr>
 **Fique Atento!**
 
 Ao utilizar o Swagger para realizar operações de inserção, atualização ou exclusão de dados, é crucial seguir a sequência correta de inserção. Primeiro, deve-se cadastrar um Cliente, seguido pela criação de um Contrato e, por fim, a inclusão de um Item de Contrato. É fundamental estar ciente de que estas entidades - Cliente, Contrato e Item de Contrato - estão interligadas e possuem restrições associadas.
