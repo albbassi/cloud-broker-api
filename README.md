@@ -68,6 +68,10 @@ automaticamente após uma mudança no código fonte.
 (env)$ flask run --host 0.0.0.0 --port 5000 --reload --debug
 ```
 
+# Atenção
+```
+<span style="color:red"> Ao utilizar o swagger para fazer operações de inserção, atualização ou deleção de dados, o usuário deverá atentar que as entidades Cliente, Contrato e Item de contrato seguem  usuário deverá  *blue* text</span>.
 
+```
 Abra o [http://localhost:5000/](http://localhost:5000/) no navegador para escolher o mode de apresentação da Dcumentação da API em execução.
 
