@@ -69,9 +69,9 @@ automaticamente após uma mudança no código fonte.
 ```
 
 # Atenção
-```
-<span style="color:red"> Ao utilizar o swagger para fazer operações de inserção, atualização ou deleção de dados, o usuário deverá atentar que as entidades Cliente, Contrato e Item de contrato seguem  usuário deverá  *blue* text</span>.
 
-```
+<span style="color:red"> Ao utilizar o swagger para fazer operações de inserção, atualização ou deleção de dados, o usuário deverá atentar que as entidades Cliente, Contrato e Item de contrato estão relacionados entre si e possuem constraints </span>.
+
+
 Abra o [http://localhost:5000/](http://localhost:5000/) no navegador para escolher o mode de apresentação da Dcumentação da API em execução.
 
