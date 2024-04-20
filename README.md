@@ -79,8 +79,7 @@ Ao utilizar o Swagger para realizar operações de inserção, atualização ou 
 
 **Finalmente**
 
-Abra [http://localhost:5000/](http://localhost:5000/) no navegador para escolher o modo de apresentação da documentação da API em execução.
-
+Acesse [http://localhost:5000/](http://localhost:5000/) no seu navegador para selecionar o modo de visualização da documentação da API em execução.
 <br>
 
 **Divirta-se!**
