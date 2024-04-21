@@ -72,7 +72,7 @@ O segundo modo de execução, inicia o servidor Flask com as configurações esp
 
 <hr>
 
-<span style=color:❎>**Fique Atento!**</span>
+[**Fique Atento!**]
 
 Ao utilizar o Swagger para realizar operações de inserção, atualização ou exclusão de dados, é crucial seguir a sequência correta de inserção. Primeiro, deve-se cadastrar um Cliente, seguido pela criação de um Contrato e, por fim, a inclusão de um Item de Contrato. É fundamental estar ciente de que estas entidades - Cliente, Contrato e Item de Contrato - estão interligadas e possuem restrições associadas.
 
