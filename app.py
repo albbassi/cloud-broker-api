@@ -52,7 +52,7 @@ def add_contrato(form: ContratoSchema):
     try:
         # criando conexão com a base
         session = Session()
-        # adicionando produto
+        # adicionando contrato
         session.add(contrato)
         # efetivando o camando de adição de novo item na tabela
         session.commit()
@@ -97,7 +97,7 @@ def del_contrato(query: ContratoBuscaSchema):
         logger.debug(f"Deletado o contrato #{numero_contrato}")
         return {"mesage": "Contrato removido", "Numero": numero_contrato}
     else:
-        # se o produto não foi encontrado
+        # se o contrato não foi encontrado
         error_msg = "Contrato não encontrado na base :/"
         logger.warning(f"Erro ao deletar contrato de número #'{numero_contrato}', {error_msg}")
         return {"mesage": error_msg}, 404
@@ -119,7 +119,7 @@ def get_contratos():
     contratos = session.query(Contrato).all()
 
     if not contratos:
-        # se não há produtos cadastrados
+        # se não há contratos cadastrados
         return {"contratos": []}, 200
     else:
         logger.debug(f"%d Existem na base atualmente % {len (contratos)} contratos")
@@ -149,7 +149,7 @@ def get_contrato(query:ContratoBuscaSchema ):
         return {"contrato": []}, 200
     else:
         logger.debug(f"%d Contrato encontrado - % {(contrato.nr_contrato)} ")
-        # retorna a representação de produto
+        # retorna a representação de contrato
         print(contrato)
         return ContratoApresenta(contrato), 200
     
@@ -239,7 +239,7 @@ def add_cliente(form: ClienteSchema):
     try:
         # criando conexão com a base
         session = Session()
-        # adicionando produto
+        # adicionando cliente
         session.add(cliente)
         # efetivando o comando de adição de novo cliente na tabela
         session.commit()
@@ -248,7 +248,7 @@ def add_cliente(form: ClienteSchema):
 
     except IntegrityError as e:
         # como a duplicidade do nome é a provável razão do IntegrityError
-        error_msg = "Cliente com mesmo cnpj já salvo na base :/"
+        error_msg = "Já existe um cliente com este mesmo cnpj já salvo na base :/"
         logger.warning(f"Erro ao adicionar cliente '{cliente.cnpj}', {error_msg}")
         return {"mesage": error_msg}, 409
 
@@ -282,7 +282,7 @@ def del_cliente(query: ClienteBuscaSchema):
         logger.debug(f"Deletado o cliente #{cnpj}")
         return {"mesage": "Cliente removido", "cnpj": cnpj}
     else:
-        # se o produto não foi encontrado
+        # se o cliente não foi encontrado
         error_msg = "Cliente não encontrado na base :/"
         logger.warning(f"Erro ao deletar cnpj #'{cnpj}', {error_msg}")
         return {"mesage": error_msg}, 404
@@ -308,7 +308,7 @@ def get_clientes():
         return {"clientes": []}, 200
     else:
         logger.debug(f"%d Existem atualmente na base % {len (clientes)} clientes")
-        # retorna a representação de produto
+        # retorna a representação de cliente
         print(clientes)
         return ClientesApresentacao(clientes), 200
 
@@ -336,7 +336,7 @@ def get_cliente(query: ClienteBuscaSchema):
         logger.debug(f"Cliente encontrato #{cnpj}")
         return {"mesage": "Cliente Encontrato", "nome": achou.nome}
     else:
-        # se o produto não foi encontrado
+        # se o cliente não foi encontrado
         error_msg = "Cliente não encontrado na base :/"
         logger.warning(f"O cnpj não existe na base #'{cnpj}', {error_msg}")
         return {"mesage": error_msg}, 404
